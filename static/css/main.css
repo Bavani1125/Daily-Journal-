@@ -1,0 +1,242 @@
+/* =========================
+    Professional Variables
+=========================== */
+:root {
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --accent: #10B981;
+  --background-light: #F9FAFB;
+  --background-dark: #1F2937;
+  --text-main: #111827;
+  --text-muted: #6B7280;
+  --white: #FFFFFF;
+  --error: #EF4444;
+  --success: #22C55E;
+  --warning: #FBBF24;
+
+  --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --transition: all 0.3s ease;
+}
+
+/* =========================
+    Reset & Base
+=========================== */
+html {
+  font-family: var(--font-family);
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #F9FAFB, #E5E7EB);
+  color: var(--text-main);
+  transition: var(--transition);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* =========================
+    Navbar
+=========================== */
+.navbar {
+  background: var(--white);
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* =========================
+    Buttons
+=========================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* =========================
+    Cards
+=========================== */
+.card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+/* =========================
+    Alerts
+=========================== */
+.alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  color: var(--white);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.alert-success { background: var(--success); }
+.alert-danger { background: var(--error); }
+.alert-warning { background: var(--warning); }
+.alert-info { background: var(--primary); }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+/* =========================
+    Form Inputs
+=========================== */
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--text-muted);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--white);
+}
+
+textarea.form-control {
+  min-height: 180px;
+}
+
+/* =========================
+    Utilities
+=========================== */
+.d-flex { display: flex; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+.mt-4 { margin-top: 1.5rem; }
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 1rem; }
+
+/* =========================
+    Markdown Preview
+=========================== */
+.markdown-preview {
+  background: var(--background-light);
+  border: 1px dashed var(--text-muted);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  color: var(--text-main);
+  overflow-x: auto;
+}
+
+/* =========================
+    Dark Mode
+=========================== */
+.dark-mode {
+  background: var(--background-dark);
+  color: var(--background-light);
+}
+
+.dark-mode .navbar {
+  background: var(--background-dark);
+  box-shadow: 0 2px 6px rgba(255,255,255,0.05);
+}
+
+.dark-mode .card {
+  background: #374151;
+}
+
+.dark-mode .btn-primary {
+  background: var(--accent);
+}
+
+.dark-mode .btn-primary:hover {
+  background: #059669;
+}
+
+.dark-mode .nav-link,
+.dark-mode .btn-outline {
+  color: var(--background-light);
+}
+
+.dark-mode .btn-outline {
+  border-color: var(--background-light);
+}
+
+.dark-mode .btn-outline:hover {
+  background: var(--background-light);
+  color: var(--background-dark);
+}
+
+.dark-mode .markdown-preview {
+  background: #374151;
+  color: var(--background-light);
+}

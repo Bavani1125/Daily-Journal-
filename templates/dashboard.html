@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Daily Journal{% endblock %}
+
+{% block content %}
+<div class="container mt-5 fade-in">
+    <!-- Profile and Welcome -->
+    <div class="text-center mb-5">
+        {% if current_user.profile_pic %}
+            <img src="{{ url_for('main.proxy_image') }}?url={{ current_user.profile_pic | urlencode }}" 
+                 alt="Profile Picture" 
+                 class="rounded-circle shadow mb-3" 
+                 style="width: 120px; height: 120px; object-fit: cover; border: 4px solid var(--primary); padding: 4px;" 
+                 loading="lazy">
+        {% endif %}
+        <h1 class="text-primary">Welcome, {{ current_user.name.split(' ')[0] }}!</h1>
+        <p class="text-muted">Let's capture your thoughts today ✨</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row text-center">
+        <div class="col-md-6 mb-4">
+            <div class="card p-4 shadow-sm hover-scale">
+                <h5 class="text-muted">Total Entries</h5>
+                <h2 class="text-primary">{{ total_entries }}</h2>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card p-4 shadow-sm hover-scale">
+                <h5 class="text-muted">Entries This Month</h5>
+                <h2 class="text-primary">{{ month_entries }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create New Entry -->
+    <div class="text-center my-5">
+        <a href="{{ url_for('journal.new_entry') }}" class="btn btn-primary btn-lg shadow-sm">+ Create New Entry</a>
+    </div>
+
+    <!-- Recent Entries -->
+    <div class="mt-5">
+        <h3 class="mb-4">Recent Entries</h3>
+        {% if recent_entries %}
+            <div class="row">
+                {% for entry in recent_entries %}
+                <div class="col-md-6 mb-4">
+                    <div class="card p-4 shadow-sm entry-card hover-scale h-100">
+                        <h4 class="entry-title">{{ entry.title }}</h4>
+                        <p class="text-muted small">{{ entry.date.strftime('%B %d, %Y') }}</p>
+                        <p class="entry-preview">{{ entry.content[:120] }}{% if entry.content|length > 120 %}...{% endif %}</p>
+                        <a href="{{ url_for('journal.view_entry', entry_id=entry.id) }}" class="btn btn-outline-primary btn-sm mt-3">Read More</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted text-center">No entries yet. Start your first journal today!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}404 Not Found - Daily Journal{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 70vh; text-align: center;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-danger mb-4">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="15" y1="9" x2="9" y2="15"></line>
+        <line x1="9" y1="9" x2="15" y2="15"></line>
+    </svg>
+    <h1 class="mb-3">404</h1>
+    <h3 class="text-muted mb-4">Oops! Page Not Found</h3>
+    <a href="{{ url_for('main.index') }}" class="btn btn-primary">Go to Home</a>
+</div>
+{% endblock %}

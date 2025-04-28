@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Create New Entry - Daily Journal{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-primary mb-3">Write Your Journal</h1>
+    <p class="text-muted">Capture your thoughts, feelings, and experiences</p>
+
+    <div class="card mt-4 shadow-sm">
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('journal.new_entry') }}">
+                {{ form.hidden_tag() }}
+
+                <!-- Title -->
+                <div class="form-group mb-4">
+                    {{ form.title.label(class="form-label") }}
+                    {{ form.title(class="form-control") }}
+                    {% for error in form.title.errors %}
+                        <small class="text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+
+                <!-- Date -->
+                <div class="form-group mb-4">
+                    {{ form.date.label(class="form-label") }}
+                    {{ form.date(class="form-control", type="date") }}
+                    {% for error in form.date.errors %}
+                        <small class="text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+
+                <!-- Content -->
+                <div class="form-group mb-4">
+                    {{ form.content.label(class="form-label") }}
+                    <div class="formatting-toolbar mb-2">
+                        <button type="button" data-format="bold" title="Bold"><b>B</b></button>
+                        <button type="button" data-format="italic" title="Italic"><i>I</i></button>
+                        <button type="button" data-format="heading" title="Heading">H</button>
+                        <button type="button" data-format="list" title="List">• List</button>
+                    </div>
+                    {{ form.content(class="form-control", id="content", rows=10, placeholder="Start writing your journal here...") }}
+                    {% for error in form.content.errors %}
+                        <small class="text-danger">{{ error }}</small>
+                    {% endfor %}
+                    <small class="text-muted">Markdown supported: **bold**, *italic*, ## heading, - list</small>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('journal.dashboard') }}" class="btn btn-outline">Cancel</a>
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
