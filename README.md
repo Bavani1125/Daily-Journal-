@@ -5,7 +5,11 @@ It allows users to document their thoughts, experiences, and reflections with a 
 
 ---
 
-## ✨ Features
+## ✨ Features![WhatsApp Image 2025-05-20 at 8 16 48 AM](https://github.com/user-attachments/assets/1ef0b667-521e-4459-adc0-dea7c30bc40d)
+![WhatsApp Image 2025-05-20 at 8 16 04 AM](https://github.com/user-attachments/assets/57369070-7a17-45ea-b625-7006913480c1)
+![WhatsApp Image 2025-05-20 at 8 13 36 AM](https://github.com/user-attachments/assets/93ac7465-795d-46a4-a86e-b90efcc32899)
+![WhatsApp Image 2025-05-20 at 8 11 52 AM](https://github.com/user-attachments/assets/88d763de-7156-4df5-8585-5cc952cb5ed6)
+
 
 - **Google OAuth Authentication**
   - Secure login with Google accounts (Authlib integration)
